@@ -4,7 +4,7 @@ Prometheus exporter to invoke scripts and parse their output as metrics.
 ## Usage
 
 ```
-script-exporter -scriptPath /path/to/my/scripts -web.listen-address :9661
+script-exporter -script.path /path/to/my/scripts -web.listen-address :9661
 ```
 
 Create e.g. `/path/to/my/scripts/script1`, an executable which emits on stdout metrics in the [Prometheus text exposision format](https://prometheus.io/docs/instrumenting/exposition_formats/).

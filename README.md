@@ -28,3 +28,6 @@ You also want to add a job for the script_exporter internal metrics (errors, pro
     static_configs:
       - targets: ['localhost:9661']
 ```
+
+## Docker
+Build the image running: `docker build .`

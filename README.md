@@ -34,4 +34,8 @@ You also want to add a job for the script_exporter internal metrics (errors, pro
 ```
 
 ## Docker
-Build the image running: `docker build .`
+Build the image running: `docker build .`  Or just run
+
+```
+docker pull ncabatoff/script-exporter
+```

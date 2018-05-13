@@ -1,6 +1,10 @@
 # script-exporter
 Prometheus exporter to invoke scripts and parse their output as metrics.
 
+[![Release](https://img.shields.io/github/release/ncabatoff/script-exporter.svg?style=flat-square")](https://github.com/ncabatoff/script-exporter/releases/latest)
+[![Build Status](https://travis-ci.org/ncabatoff/script-exporter.svg?branch=master)](https://travis-ci.org/ncabatoff/script-exporter)
+[![Powered By: GoReleaser](https://img.shields.io/badge/powered%20by-goreleaser-green.svg?branch=master)](https://github.com/goreleaser)
+
 ## Usage
 
 ```

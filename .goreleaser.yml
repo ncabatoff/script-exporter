@@ -1,0 +1,25 @@
+builds:
+  - flags: -tags netgo
+    goos:
+      - linux
+      - darwin
+      - freebsd
+      - openbsd
+      - netbsd
+      - dragonfly
+    goarch:
+      - amd64
+      - 386
+      - arm
+      - arm64
+      - ppc64
+      - ppc64le
+release:
+  draft: true
+  prerelease: true
+dockers:
+  - image: ncabatoff/script-exporter
+    dockerfile: Dockerfile.goreleaser
+    binary: script-exporter
+    goos: linux
+    goarch: amd64

@@ -16,7 +16,8 @@ import (
 func runCommand(ctx context.Context, script string, args ...string) (string, error) {
 	// Create a new context for the command so that we don't fight over
 	// the Done() message.
-	cmdctx, _ := context.WithCancel(ctx)
+	cmdctx, cancel := context.WithCancel(ctx)
+	defer cancel()
 	cmd := exec.CommandContext(cmdctx, script, args...)
 
 	// It'd be simpler to use cmd.Output(), which was what I tried first.

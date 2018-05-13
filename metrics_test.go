@@ -3,10 +3,11 @@ package main
 import (
 	// "github.com/kylelemons/godebug/pretty"
 	"context"
-	. "gopkg.in/check.v1"
 	"os"
 	"os/exec"
 	"time"
+
+	. "gopkg.in/check.v1"
 )
 
 func (s MySuite) TestRunCommand(c *C) {
@@ -39,7 +40,8 @@ func (s MySuite) TestRunCommandCancel(c *C) {
 	c.Assert(os.Remove("2"), IsNil)
 
 	// Test we can timeout a shell script containing a sleep.  Racy...
-	ctx, _ := context.WithTimeout(context.Background(), 500*time.Millisecond)
+	ctx, cancel := context.WithTimeout(context.Background(), 500*time.Millisecond)
+	defer cancel()
 	start := time.Now()
 	_, err = runCommand(ctx, "bash", "-c", "touch 1; sleep 5; touch 2")
 	elapsed := time.Since(start)
@@ -55,7 +57,8 @@ func (s MySuite) TestRunCommandUnsafeCancel(c *C) {
 	// we can do so, but killing the bash parent won't kill the inner sleep, so the
 	// command doesn't return until it elapses.  Note that this doesn't apply to all
 	// bourney shells, e.g. dash works just fine.
-	ctx, _ := context.WithTimeout(context.Background(), 500*time.Millisecond)
+	ctx, cancel := context.WithTimeout(context.Background(), 500*time.Millisecond)
+	defer cancel()
 	start := time.Now()
 	_, err := runCommandUnsafe(ctx, "bash", "-c", "touch 1; sleep 5; touch 2")
 	elapsed := time.Since(start)
@@ -68,7 +71,8 @@ func (s MySuite) TestRunCommandUnsafeCancel(c *C) {
 func runCommandUnsafe(ctx context.Context, script string, args ...string) (string, error) {
 	// Create a new context for the command so that we don't fight over
 	// the Done() message.
-	cmdctx, _ := context.WithCancel(ctx)
+	cmdctx, cancel := context.WithCancel(ctx)
+	defer cancel()
 	cmd := exec.CommandContext(cmdctx, script, args...)
 
 	out, err := cmd.Output()

@@ -15,8 +15,8 @@ builds:
       - ppc64
       - ppc64le
 release:
-  draft: true
-  prerelease: true
+  draft: false
+  prerelease: false
 dockers:
   - image: ncabatoff/script-exporter
     dockerfile: Dockerfile.goreleaser

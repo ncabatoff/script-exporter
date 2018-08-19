@@ -1,7 +1,7 @@
-FROM golang:1.8
+FROM golang:1.10
 WORKDIR /go/src/script-exporter
 COPY . .
-RUN CGO_ENABLED=0 GOOS=linux go build -v
+RUN CGO_ENABLED=0 GOOS=linux make
 
 FROM docker:17.11
 RUN apk add --no-cache bash ca-certificates openssl && update-ca-certificates

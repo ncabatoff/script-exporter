@@ -1,0 +1,26 @@
+# bosun.org v0.0.0-20161109002104-b585c890132e
+bosun.org/opentsdb
+bosun.org/slog
+# github.com/beorn7/perks v0.0.0-20150223135152-b965b613227f
+github.com/beorn7/perks/quantile
+# github.com/golang/protobuf v0.0.0-20160211013955-0dfe8f37844c
+github.com/golang/protobuf/proto
+# github.com/matttproud/golang_protobuf_extensions v0.0.0-20151011102529-d0c3fe89de86
+github.com/matttproud/golang_protobuf_extensions/pbutil
+# github.com/prometheus/client_golang v0.0.0-20170511141251-42552c195dd3
+github.com/prometheus/client_golang/prometheus
+github.com/prometheus/client_golang/prometheus/promhttp
+# github.com/prometheus/client_model v0.0.0-20150212101744-fa8ad6fec335
+github.com/prometheus/client_model/go
+# github.com/prometheus/common v0.0.0-20160917184401-9a94032291f2
+github.com/prometheus/common/expfmt
+github.com/prometheus/common/model
+github.com/prometheus/common/internal/bitbucket.org/ww/goautoneg
+# github.com/prometheus/procfs v0.0.0-20151029195050-406e5b7bfd82
+github.com/prometheus/procfs
+# golang.org/x/sys v0.0.0-20190726091711-fc99dfbffb4e
+golang.org/x/sys/windows/svc/debug
+golang.org/x/sys/windows/svc
+golang.org/x/sys/windows
+# gopkg.in/check.v1 v1.0.0-20161208181325-20d25e280405
+gopkg.in/check.v1
